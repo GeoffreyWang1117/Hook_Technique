@@ -137,14 +137,55 @@ manager.visualize(results)
 - TensorRT >= 8.6 (可选)
 - NumPy, Matplotlib, Seaborn
 
-## 📖 文档
+## 📚 学习资源
+
+### 🎓 教程 (Tutorials)
+
+从零开始，逐步学习框架的完整教程系列：
+
+- **入门级**
+  - [Tutorial 1: Hello World](tutorials/01_hello_world.py) - 你的第一个Hook (10分钟)
+  - [Tutorial 2: 梯度流分析](tutorials/02_gradient_flow.py) - 理解梯度追踪 (15分钟)
+
+- **中级**
+  - [Tutorial 3: Attention分析](tutorials/03_attention_analysis.py) - 注意力模式分析 (20分钟)
+  - [Tutorial 4: 死神经元检测](tutorials/04_dead_neurons.py) - 激活值问题 (20分钟)
+
+- **高级**
+  - [Tutorial 5: Fisher剪枝](tutorials/05_fisher_pruning.py) - 智能模型压缩 (30分钟)
+
+**📖 查看完整教程指南**: [tutorials/README.md](tutorials/README.md)
+
+### 💡 示例代码 (Examples)
+
+实际应用场景的完整示例：
+
+- [基础使用](examples/basic_usage.py) - 简单完整的入门示例
+- [Attention分析](examples/attention_analysis.py) - 注意力模式专项分析
+- [剪枝示例](examples/pruning_example.py) - Fisher信息剪枝
+- **[LLM推理优化](examples/use_case_llm_optimization.py)** - 端到端优化工作流 ⭐
+- **[模型调试](examples/use_case_model_debugging.py)** - 系统化训练问题诊断 ⭐
+
+**📖 查看完整示例说明**: [examples/README.md](examples/README.md)
+
+### 📖 文档 (Documentation)
 
 详细文档请参考 [docs/](docs/) 目录：
 
-- [Hook API 文档](docs/api.md)
-- [可视化指南](docs/visualization.md)
-- [性能优化建议](docs/performance.md)
-- [自定义Hook开发](docs/custom_hooks.md)
+- **入门**
+  - [快速开始](docs/quickstart.md) - 5分钟上手指南
+  - [教程总览](docs/tutorials.md) - 所有教程的详细说明
+
+- **参考**
+  - [API文档](docs/api.md) - 完整API参考
+  - [最佳实践](docs/best_practices.md) - 使用技巧和建议
+
+- **帮助**
+  - [FAQ](docs/faq.md) - 常见问题解答
+  - [故障排除](docs/troubleshooting.md) - 问题诊断和解决
+
+- **深入**
+  - [架构设计](docs/architecture.md) - 框架设计原理
 
 ## 🤝 贡献
 
