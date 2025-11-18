@@ -1,0 +1,80 @@
+# LLM Hook Analysis Configuration Example
+
+# Model configuration
+model:
+  path: "path/to/your/model.pth"
+  type: "pytorch"  # Options: pytorch, huggingface, onnx
+
+# Hooks to apply
+hooks:
+  # Forward pass hook
+  - type: forward
+    layer_pattern: "transformer.layer.*"
+    capture_input: false
+    capture_output: false
+    compute_stats: true
+
+  # Backward pass hook (for training analysis)
+  - type: backward
+    layer_pattern: "transformer.layer.*"
+    detect_vanishing: true
+    detect_exploding: true
+
+  # Attention monitoring
+  - type: attention
+    record_scores: true
+    compute_entropy: true
+    compute_sparsity: true
+    max_samples: 100
+
+  # KV cache monitoring
+  - type: kv_cache
+    track_size: true
+    track_memory: true
+
+  # Activation monitoring
+  - type: activation
+    layer_pattern: "*fc*"
+    dead_neuron_threshold: 0.01
+    track_distribution: true
+
+  # Fisher information (for pruning)
+  - type: fisher
+    layer_pattern: "*weight"
+    accumulate_samples: 100
+
+  # Gradient tracking
+  - type: gradient
+    detect_issues: true
+    vanishing_threshold: 1.0e-6
+    exploding_threshold: 100.0
+
+  # CUDA profiling (optional, requires CUDA)
+  #- type: cuda
+  #  with_stack: true
+  #  profile_memory: true
+
+# Data configuration (optional)
+data:
+  # If not specified, dummy data will be used
+  # dataset_path: "path/to/dataset"
+  # batch_size: 32
+  # num_samples: 100
+
+# Analysis output configuration
+analysis:
+  output_dir: "./analysis_output"
+  generate_report: true
+  report_format: "both"  # Options: text, json, both
+  generate_visualizations: true
+
+# Performance tuning
+performance:
+  max_samples: 100  # Maximum samples to collect per hook
+  clear_interval: 10  # Clear results every N iterations
+  enable_stats_only: true  # Disable full tensor capture for speed
+
+# Logging
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  log_file: "./analysis.log"
